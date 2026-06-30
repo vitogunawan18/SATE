@@ -341,10 +341,10 @@ export default function HomePage() {
                                       Detail
                                     </motion.button>
                                     <motion.button
-                                      whileHover={{ scale: 1.1, color: '#ef4444' }}
+                                      whileHover={{ scale: 1.1 }}
                                       whileTap={{ scale: 0.9 }}
                                       onClick={() => setConfirmDeleteId(record.id)}
-                                      className="p-1.5 rounded-xl border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-200"
+                                      className="p-1.5 rounded-xl border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all duration-200"
                                       title="Hapus"
                                     >
                                       <Trash2 className="w-3.5 h-3.5" />

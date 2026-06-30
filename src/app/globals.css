@@ -283,6 +283,31 @@ html.dark .glow-card {
 .btn-ghost-editorial:active {
   transform: scale(0.95);
 }
+.btn-ghost-danger {
+  background-color: transparent;
+  color: var(--color-accent-red);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-ghost-danger:hover {
+  background-color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+  color: #ffffff;
+}
+.btn-ghost-danger:active {
+  transform: scale(0.95);
+}
 
 /* Button Outline (Canvas + Hairline Strong) */
 .btn-outline-editorial {

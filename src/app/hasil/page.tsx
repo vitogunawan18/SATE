@@ -632,23 +632,11 @@ export default function HasilEvaluasiPage() {
                               </button>
                               <button
                                 onClick={() => setConfirmDeleteId(record.id)}
-                                className="btn-ghost-editorial touch-target-mobile"
+                                className="btn-ghost-danger touch-target-mobile"
                                 style={{
                                   height: '32px',
                                   padding: '0 12px',
                                   fontSize: '12px',
-                                  backgroundColor: 'transparent',
-                                  color: 'var(--color-accent-red)',
-                                  borderColor: 'var(--color-accent-red)',
-                                  transition: 'all 0.15s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = 'var(--color-accent-red)';
-                                  e.currentTarget.style.color = 'var(--color-primary-on)';
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.backgroundColor = 'transparent';
-                                  e.currentTarget.style.color = 'var(--color-accent-red)';
                                 }}
                               >
                                 Hapus
