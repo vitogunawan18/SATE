@@ -25,7 +25,7 @@ export interface Rule {
 }
 
 export const RULES: Rule[] = [
-  // ─── TAHAP 1: Penilaian Kelayakan (H1 - H15) ───────────────────────────────
+  // ─── TAHAP 1: Penilaian Kelayakan (H1 - H13) + Aturan Tambahan ────────────
   {
     rule_id: 'H1',
     stage: 1,
@@ -142,10 +142,11 @@ export const RULES: Rule[] = [
     conclusion: { attribute: 'diterima', value: 'ya' },
     cf: 0.9,
   },
+  // ─── ATURAN TAMBAHAN: Mengatasi Kasus Kosong / Hole ───────────────────────
   {
     rule_id: 'H14',
     stage: 1,
-    description: 'Disiplin tinggi + pengalaman rendah → perlu pelatihan (Penanganan Hole 1)',
+    description: 'Disiplin tinggi + pengalaman rendah → perlu pelatihan (Aturan Tambahan 1)',
     conditions: [
       { attribute: 'disiplin', operator: '==', value: 'tinggi' },
       { attribute: 'pengalaman_fnb_tahun', operator: '<=', value: 1 },
@@ -156,7 +157,7 @@ export const RULES: Rule[] = [
   {
     rule_id: 'H15',
     stage: 1,
-    description: 'Kemampuan individu baik + teamwork rendah → evaluasi lanjut (Penanganan Hole 2)',
+    description: 'Kemampuan individu baik + teamwork rendah → evaluasi lanjut (Aturan Tambahan 2)',
     conditions: [
       { attribute: 'kemampuan_individu', operator: '==', value: 'baik' },
       { attribute: 'teamwork', operator: '==', value: 'rendah' },
@@ -164,8 +165,16 @@ export const RULES: Rule[] = [
     conclusion: { attribute: 'evaluasi_lanjut', value: 'ya' },
     cf: 0.7,
   },
+  {
+    rule_id: 'H16',
+    stage: 1,
+    description: 'Hasil trial cukup → kandidat perlu evaluasi lanjut oleh HRD (Aturan Tambahan 3)',
+    conditions: [{ attribute: 'hasil_trial', operator: '==', value: 'cukup' }],
+    conclusion: { attribute: 'evaluasi_lanjut', value: 'ya' },
+    cf: 0.6,
+  },
 
-  // ─── TAHAP 2: Penentuan Penempatan Kerja (P1 - P9) ─────────────────────────
+  // ─── TAHAP 2: Penentuan Penempatan Kerja (P1 - P8) + Aturan Tambahan ───────
   {
     rule_id: 'P1',
     stage: 2,
@@ -193,9 +202,9 @@ export const RULES: Rule[] = [
   {
     rule_id: 'P4',
     stage: 2,
-    description: 'Shift malam memerlukan pertimbangan khusus (penyaring workflow)',
+    description: 'Shift malam → perlu pertimbangan khusus penempatan',
     conditions: [{ attribute: 'shift_malam', operator: '==', value: 'ya' }],
-    conclusion: { attribute: 'pertimbangan_khusus_p2', value: 'ya' },
+    conclusion: { attribute: 'perlu_pertimbangan', value: 'ya' },
     cf: 0.8,
   },
   {
@@ -236,7 +245,7 @@ export const RULES: Rule[] = [
   {
     rule_id: 'P9',
     stage: 2,
-    description: 'Tidak memenuhi posisi spesifik → General Staff (Penanganan Hole 3)',
+    description: 'Tidak memenuhi posisi spesifik → General Staff (Aturan Tambahan 3)',
     conditions: [{ attribute: 'tidak_memenuhi_posisi', operator: '==', value: 'ya' }],
     conclusion: { attribute: 'penempatan', value: 'general_staff' },
     cf: 0.6,

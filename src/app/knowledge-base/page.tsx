@@ -38,7 +38,7 @@ const ATTRIBUTE_LABELS: Record<string, string> = {
   indikasi_disiplin_awal: 'Indikasi Disiplin Awal',
   adaptasi_kerja: 'Kecepatan Adaptasi Kerja',
   pertimbangan_khusus: 'Perlu Pertimbangan Khusus',
-  pertimbangan_khusus_p2: 'Perlu Pertimbangan Khusus (Shift Malam)',
+  perlu_pertimbangan: 'Perlu Pertimbangan Khusus (Shift Malam)',
   konsistensi: 'Konsistensi Kerja',
   lanjut_wawancara: 'Berhak Lanjut ke Wawancara',
   lanjut_trial: 'Berhak Lanjut ke Trial Kerja',
@@ -1072,7 +1072,7 @@ export default function KnowledgeBasePage() {
                 filteredRules.map((rule) => {
                   const isTriggered = triggeredRules.includes(rule.rule_id);
                   const isStage1 = rule.stage === 1;
-                  const isHoleRule = ['H14', 'H15', 'P9'].includes(rule.rule_id);
+                  const isHoleRule = ['H14', 'H15', 'H16', 'P9'].includes(rule.rule_id);
                   
                   // Certainty Factor Colors
                   let cfColor = 'var(--color-accent-blue)';

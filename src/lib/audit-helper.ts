@@ -125,7 +125,9 @@ export function generateDetailedAuditReport(result: InferenceResult): DetailedAu
 
   // Evaluation rationales
   if (result.status === 'evaluasi_lanjut') {
-    if (rulesFired.includes('H15')) {
+    if (rulesFired.includes('H16')) {
+      rationales.push('Kandidat direkomendasikan untuk evaluasi lanjut oleh HRD (Aturan H16 aktif) karena hasil trial kerja dinilai CUKUP — belum mencapai standar minimum "baik" untuk penerimaan langsung, namun tidak serta-merta ditolak. HRD perlu mempertimbangkan konteks dan potensi kandidat secara manual.');
+    } else if (rulesFired.includes('H15')) {
       rationales.push('Kandidat direkomendasikan untuk evaluasi manual lebih lanjut oleh HRD (Aturan H15 aktif) karena memiliki kemampuan kerja individu yang baik (kemampuan_individu = baik), namun kemampuan kolaborasi tim dinilai kurang/rendah (teamwork = rendah).');
     } else {
       rationales.push('Kandidat membutuhkan pertimbangan manajerial karena terdapat kriteria yang kontradiktif (memiliki keahlian tinggi di beberapa bidang namun menunjukkan keterbatasan di bidang kerja sama tim).');
